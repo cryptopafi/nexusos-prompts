@@ -54,6 +54,7 @@ Run `~/.nexus/scripts/prompt-optimizer-discover.py`. This:
   2. **Changed since last audit** (content hash mismatch) — weight: 80
   3. **Lowest score** (< 70) — weight: 60 + (70 - score) (lower score = higher priority)
   4. **Oldest audit** (periodic refresh) — weight: 40 + days_since_audit/7
+  5. **High-traffic** (invoked frequently since last audit) — weight: 50 + invocation_count/10 (read from manifest.json `invocation_count` field if available; skip if not tracked)
 
 ### Pas 2: Audit (Opus Subagent)
 
@@ -108,15 +109,20 @@ OUTPUT FORMAT (JSON):
   "recommendations": [
     {"priority": "HIGH|MEDIUM|LOW", "technique": "name", "reason": "why", "suggestion": "concrete fix", "confidence": "HIGH|MEDIUM|LOW"}
   ],
-  "verdict": "PASS|CONDITIONAL|FAIL"
+  "verdict": "PASS|CONDITIONAL|FAIL",
+  "counter_argument": "string (required if initial total > 80, else null)"
 }
 
+reasoning field cap: max 40 words per dimension. If evidence requires more, summarize to the single most important finding.
+
 ASSUMPTION CHALLENGE (P17): After scoring all 5 dimensions, re-read your D3 (Context) and D4 (Constraints) scores. Ask yourself: "Am I giving credit for implied context that isn't actually written?" If yes, reduce by 1-2 points. Prompts should be self-contained — don't assume the model knows things it hasn't been told.
+
+ANTI-AFFIRMATION GATE (P25): If your initial total score exceeds 80, you MUST generate one counter-argument that lowers the score by 5-10 points, then reconcile and justify your final score. Do not skip this step — it is the structural guard against sycophantic auditing. Log the counter-argument in a "counter_argument" field in the JSON output.
 
 Be rigorous. Score honestly — do not inflate. A score of 60 is acceptable for simple prompts. Use the calibration anchors above to ground your scores.
 ```
 
-**Context budget (P70)**: If the prompt being audited exceeds 200 lines, chunk it into logical sections and audit each against relevant patterns. Summarize cross-section findings at the end. Do not load the full 81-pattern checklist for TRIVIAL/SIMPLE prompts — use the 8-technique base catalog (PromptForge §3.1) instead.
+**Context budget (P70)**: If the prompt being audited exceeds 200 lines, chunk it into logical sections and audit each against relevant patterns. Summarize cross-section findings at the end. Do not load the full 81-pattern checklist for TRIVIAL/SIMPLE prompts — use the 8-technique base catalog (PromptForge §3.1) (~/.nexus/procedures/PROMPTING.md §3.1) instead.
 
 Save audit output to `~/.nexus/optimization/history/<prompt-id-sanitized>/<date>-audit.json`.
 
@@ -137,6 +143,7 @@ For each audit with verdict CONDITIONAL or FAIL, or with score < 85:
 4. Self-score the improved version
 5. **VERIFY (P15)**: Re-run the audit brief (Pas 2) on the improved prompt. Compare scores. If any dimension DECREASED → revert that technique and try the next recommendation instead. WHY: without verify, technique stuffing and contradictions silently degrade prompts (see §7 Bad Cycle Example).
 6. If score improved by < 5 points, iterate once (apply next recommendation)
+6.5. **Trace Compliance (P80)**: Diff-check that the improved prompt contains structural markers for each HIGH-priority recommendation from the audit. For each HIGH rec that is missing from the improved prompt, either (a) apply it now, or (b) log the skip reason in a `skipped_recommendations` field in the staged file header. Silent skips are not permitted.
 7. Write improved prompt to `~/.nexus/optimization/staged/<prompt-id-sanitized>.md`
 
 ### Pas 4: Approve
@@ -164,7 +171,7 @@ After each cycle:
 1. Update `manifest.json`: new scores, audit date, version bump, increment `total_improvements`
 2. **Re-run discover.py** to regenerate queue.json with fresh state (F4: prevents stale queue)
 3. Save to Cortex: `collection=procedures, type=self-optimizer`
-4. If 3+ prompts were optimized in this cycle, extract new patterns (following Session 1-5 methodology)
+4. If 3+ prompts were optimized in this cycle, extract new patterns (following Session 1-5 methodology) (~/.nexus/procedures/PATTERN-INDEX.md §Pattern Discovery)
 5. Emit VK: `✅ [SOL] cycle complete | audited: N | improved: M | avg_delta: +X.X | patterns: P`
 
 ---
@@ -263,6 +270,7 @@ Applied only P23 (negative examples) + P4 (structured follow-up format) + P22 (d
 ---
 
 ## Changelog
+- v2.1 (2026-04-24): SOL-on-SOL R6. +P25 anti-affirmation gate (counter_argument field required when initial score >80). +P80 trace compliance (Pas 3.6 diff-check, skipped_recommendations log). +P77 high-traffic queue weight (item 5, invocation_count). +P33 reasoning field cap (40 words/dimension). +inline paths for Session 1-5 and PromptForge §3.1 references.
 - v2.0 (2026-04-09): **SOL-on-SOL R5 (major)**. PromptForge refs v3.7→v4.0, pattern count 69→81, Pas 2 checklist expanded with P55-P81 (creative, new research). +P74 early-exit gate (score ≥85 + all D≥16 → skip Build). +P79 motivation on Verify step. +P70 context budget for large prompts (>200L chunk, TRIVIAL use base catalog). Stale refs fixed: metrics 69→81, integration section cleaned (removed v1.1 note, unfulfilled v1.2 promise). Header date updated.
 - v1.5 (2026-03-19): FORGE-AUDIT fixes applied: F1 PromptForge ref updated to v3.7 in Pas 3, F2 header bumped to v1.5, F3 architecture table pattern count updated to 81 PE patterns (P1-P81). Post-training alignment. Scoring dimensions aligned to PromptForge v4.0 (D1-D5 Claritate/Completitudine/Corectitudine/Focalizare/Adecvare). Pattern check list extended with P25-P35 agentic + P48-P54 coding.
 - v1.4 (2026-03-19): SOL-on-SOL R4 (FINAL). +P17 assumption challenge (re-check D3/D4 for implied context). +P21 weighted queue priority (numeric weights for deterministic ordering). **STABLE** — delta +1.5 < threshold 2. Next SOL eligible: 2026-04-18.
