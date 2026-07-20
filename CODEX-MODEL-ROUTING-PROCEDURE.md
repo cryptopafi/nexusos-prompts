@@ -28,10 +28,10 @@ Asigură că fiecare task trimis la Codex folosește modelul corect conform tabe
 
 | Model | Speed | Reasoning | Context | Când |
 |-------|-------|-----------|---------|------|
-| **gpt-5.4** | faster than 5.3 | low→xhigh | 1M (exp.) | Default pentru audit tehnic extern: NPLF code review, security, bash compat, cross-file audit |
+| **gpt-5.6-sol** | faster than 5.3 | low→xhigh | 1M (exp.) | Default pentru audit tehnic extern: NPLF code review, security, bash compat, cross-file audit |
 | **gpt-5.3-codex-spark** | 1000+ tok/s | fixed (no levels) | 128K | Lint/syntax/smoke-review rapid, single-file, low-risk audit helper |
-| **gpt-5.3-codex** | 65-70 tok/s | low→xhigh | 400K+ | Coding-only legacy lane — DEPRECATED pentru audit mode |
-| **gpt-5.2-codex** | ~80 tok/s | low→xhigh | 256K | Coding-only legacy lane — DEPRECATED pentru audit mode |
+| **gpt-5.6-sol** | 65-70 tok/s | low→xhigh | 400K+ | Coding-only legacy lane — DEPRECATED pentru audit mode |
+| **gpt-5.6-sol** | ~80 tok/s | low→xhigh | 256K | Coding-only legacy lane — DEPRECATED pentru audit mode |
 | **gpt-5.1-codex-max** | ~60 tok/s | low→xhigh | 400K+ | Coding-only legacy lane — DEPRECATED pentru audit mode |
 | **gpt-5.2** | ~80 tok/s | low→xhigh | 256K | Non-coding legacy lane — DEPRECATED pentru audit mode |
 | **gpt-5.1-codex-mini** | ~100 tok/s | medium/high | 64K | Legacy economic lane — DEPRECATED pentru audit mode |
@@ -69,8 +69,8 @@ Q2: Auditul implică oricare dintre următoarele?
   └─ bash script
   └─ security review
   └─ daemon/pipeline/config cross-file
-  └─ DA la oricare → gpt-5.4
-  └─ NU → gpt-5.4 (default audit technical lane)
+  └─ DA la oricare → gpt-5.6-sol
+  └─ NU → gpt-5.6-sol (default audit technical lane)
 
 Legacy branches:
   └─ Q-code / Q-non-code / Q-security-code
@@ -82,7 +82,7 @@ Legacy branches:
 - `Q2: Câte fișiere afectează?` → `[DEPRECATED - coding tasks merg la TECH]`
 - `Q3: E verificabil în <30 secunde?` → înlocuit de lint/syntax gate pentru Spark
 - `Q4: Combină cod cu decizii non-cod?` → `[DEPRECATED - coding tasks merg la TECH]`
-- `Override Q: E security-critical?` → audit security merge direct la `gpt-5.4`
+- `Override Q: E security-critical?` → audit security merge direct la `gpt-5.6-sol`
 
 ## 4. Pre-Queue Validation Gate (la FIECARE brief)
 
@@ -98,9 +98,9 @@ Legacy branches:
      → Dacă nu: REJECT. Coding tasks nu mai merg la Codex.
 □ 3. MODEL MATCH: Task-ul este lint/syntax low-risk?
      → DA: `gpt-5.3-codex-spark`
-     → NU: `gpt-5.4`
+     → NU: `gpt-5.6-sol`
 □ 4. SECURITY/BASH CHECK: Dacă task-ul atinge bash/security/daemon/pipeline
-     → Folosește `gpt-5.4` obligatoriu. Spark INTERZIS.
+     → Folosește `gpt-5.6-sol` obligatoriu. Spark INTERZIS.
 □ 5. OUTPUT CHECK: Brief-ul cere JSON audit output + NPLF scoring?
      → Dacă nu: corectează înainte de queue.
 ```
@@ -150,7 +150,7 @@ Routing: Q2→1 fișier <100 linii → Q3→verificabil rapid (template)
   "misrouted": [
     {
       "task_id": "m4-148",
-      "model_used": "gpt-5.3-codex",
+      "model_used": "gpt-5.6-sol",
       "model_recommended": "gpt-5.3-codex-spark",
       "reason": "Single-file boilerplate, verificabil rapid",
       "waste_estimate": "~3x slower than needed"
@@ -180,12 +180,12 @@ Routing: Q2→1 fișier <100 linii → Q3→verificabil rapid (template)
 
 | # | Task | Expected Model | Măsurăm |
 |---|------|---------------|---------|
-| 1 | "Audit this 300-line bash script for bash 3.2 compatibility" | gpt-5.4 | Findings quality, false positives |
-| 2 | "Security review: find injection vectors in this API handler" | gpt-5.4 | Findings depth, accuracy |
+| 1 | "Audit this 300-line bash script for bash 3.2 compatibility" | gpt-5.6-sol | Findings quality, false positives |
+| 2 | "Security review: find injection vectors in this API handler" | gpt-5.6-sol | Findings depth, accuracy |
 | 3 | "Lint/syntax review on this 80-line helper script" | gpt-5.3-codex-spark | Speed, syntax accuracy |
-| 4 | "Audit a 6-file daemon pipeline for dependency and state issues" | gpt-5.4 | Cross-file consistency, depth |
+| 4 | "Audit a 6-file daemon pipeline for dependency and state issues" | gpt-5.6-sol | Cross-file consistency, depth |
 | 5 | "Smoke-review a small JSON/plist config change" | gpt-5.3-codex-spark | Speed, low-noise findings |
-| 6 | "Re-audit after targeted fix on previous HIGH findings" | gpt-5.4 | Regression detection, closure accuracy |
+| 6 | "Re-audit after targeted fix on previous HIGH findings" | gpt-5.6-sol | Regression detection, closure accuracy |
 
 ### Metrici per model:
 

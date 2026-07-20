@@ -312,7 +312,7 @@ cat ~/.nexus/procedures/openclaw/procedure-health.json | jq '.procedures["CORTEX
 ### MODEL ROUTING
 | Activitate | Model | Motivul |
 |-----------|-------|---------|
-| Build server MCP | Codex (gpt-5.3-codex) | Cod 200+ linii, integrare API |
+| Build server MCP | Codex (gpt-5.6-sol) | Cod 200+ linii, integrare API |
 | Audit pre-deploy | Opus subagent | DEV-H-009 Dual Audit Loop |
 | Test E2E | Genie (Sonnet) | Orchestrare teste |
 

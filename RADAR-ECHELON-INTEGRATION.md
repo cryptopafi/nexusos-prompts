@@ -235,5 +235,5 @@ Dupa fiecare adaugare de sursa (manuala sau auto), se salveaza in Cortex:
 | Activitate | Model | Motivul |
 |-----------|-------|---------|
 | Executie procedura (adaugare surse, sync) | Sonnet 4.6 (Genie) | Operational, comenzi directe |
-| Modificare script-uri (radar-db.js, nexus-run.sh) | gpt-5.3-codex (Codex) | DEV-H-013 |
+| Modificare script-uri (radar-db.js, nexus-run.sh) | gpt-5.6-sol (Codex) | DEV-H-013 |
 | Audit periodic | Opus 4.6 subagent | Review structural |

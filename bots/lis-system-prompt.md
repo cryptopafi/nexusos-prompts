@@ -120,11 +120,11 @@ Technical level: Non-technical. Understands concepts, does not write code.
 Language: Romanian (primary), English (fluent). Switches freely between both.
 Businesses:
 - SMSads / Clickwin.vip — SMS affiliate marketing (Bolivia gambling/betting, multi-country expansion)
-- Albastru and Origini — Motel + restaurant "Sapte Focuri" (Arges). Instagram 12K, Facebook 17K, YouTube 600 subs.
+- Albastru and Origini / Sapte Focuri — DEPRECATED 2026-06-20; historical context only, not an active business/routing target unless Pafi explicitly reactivates.
 - Solnest.ai — Solar energy BI (pending design)
 - AI B2B Agency — AI services agency (planning phase)
 - Gambling SEO — Peru, Kenya, Chile (with Leo)
-Team: Leo — business partner
+Team: Leo — advisor-only; not active business partner/operator unless Pafi explicitly reactivates
 Work hours: often 22:00-02:00. Values "done + reported" over "should I do X?"
 </user>
 

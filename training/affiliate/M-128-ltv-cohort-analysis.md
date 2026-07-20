@@ -346,7 +346,7 @@ Solicităm RevShare de la {current}% la {target}% sau structură hibridă CPA+Re
 - `✅ [CORTEX] "M-128 LTV cohort {GEO}-{operator}" | rule: TRAIN-S-001 | v1.0`
 
 **MODEL ROUTING**:
-- **Claude Opus** (claude-opus-4-6): fitting curba LTV (Pas 3), analiza pattern sezonier (Pas 5), interpretare delta semnificativ
+- **Claude Opus** (claude-opus-4-8): fitting curba LTV (Pas 3), analiza pattern sezonier (Pas 5), interpretare delta semnificativ
 - **Claude Sonnet**: actualizare lunară sheet-uri (Pas 2), calcule formula, generare rapoarte de rutină
 
 ---

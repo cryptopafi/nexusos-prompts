@@ -224,7 +224,7 @@ Disclaimer: [DISCLAIMER_TEXT from M-116]
 
 **3C. Comparison Pages — Claude API**
 
-1. Folosește Claude API (model: claude-opus-4-6) cu prompt structurat per pagină (nu bulk — fiecare comparison page are nevoie de raționament custom).
+1. Folosește Claude API (model: claude-opus-4-8) cu prompt structurat per pagină (nu bulk — fiecare comparison page are nevoie de raționament custom).
 2. Script Python de bază (salvat la `~/.nexus/scripts/generate-comparison.py`):
 
 ```python
@@ -251,7 +251,7 @@ with open('programmatic-data-{GEO}.csv') as f:
         """
 
         response = client.messages.create(
-            model="claude-opus-4-6",
+            model="claude-opus-4-8",
             max_tokens=4000,
             messages=[{"role": "user", "content": prompt}]
         )
@@ -604,7 +604,7 @@ Salvează separat în Cortex după fiecare batch și după fiecare raport lunar 
 6. **Raport lunar generat**: În prima zi a lunii, `seo-performance-{GEO}-monthly.md` trebuie să existe și să fie actualizat. Verifică că toate URL-urile publicate în luna precedentă sunt incluse. Dacă lipsesc URL-uri: raport incomplet = regenerare.
 
 **MODEL ROUTING**:
-- **Claude Opus** (claude-opus-4-6): template design (Pasul 1 — analiza pattern-urilor), comparison pages (Pasul 3C — articole complexe)
+- **Claude Opus** (claude-opus-4-8): template design (Pasul 1 — analiza pattern-urilor), comparison pages (Pasul 3C — articole complexe)
 - **Koala.sh**: payment method pages + how-to guides (bulk, SERP-aware)
 - **Byword.ai**: operator reviews (bulk cu template variables)
 - **Surfer SEO**: Quality Gate 1 (semantic scoring)

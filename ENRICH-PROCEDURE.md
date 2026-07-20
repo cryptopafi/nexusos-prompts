@@ -289,7 +289,7 @@ CONSTRAINTS:
     ]
   },
   "enriched_at": "ISO timestamp",
-  "model": "gemini-2.5-flash | claude-opus-4-6",
+  "model": "gemini-2.5-flash | claude-opus-4-8",
   "insight_layer": "standard | deep",
   "upgraded_from": "null | gemini",
   "cost": 0.00

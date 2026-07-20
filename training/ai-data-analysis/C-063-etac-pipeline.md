@@ -134,9 +134,9 @@ assert validate_transform(df_sales, chunks), "Transform validation failed"
 ```python
 # Model selection based on task type
 ANALYSIS_ROUTING = {
-    "summarize": {"model": "claude-sonnet-4-6", "reason": "Fast narrative generation"},
+    "summarize": {"model": "claude-sonnet-5", "reason": "Fast narrative generation"},
     "classify": {"model": "claude-haiku-4-5", "reason": "High volume, simple task"},
-    "anomaly_detect": {"model": "claude-opus-4-6", "reason": "Nuanced pattern recognition"},
+    "anomaly_detect": {"model": "claude-opus-4-8", "reason": "Nuanced pattern recognition"},
     "predict_trend": {"model": "gpt-4o", "reason": "Strong at numerical reasoning"},
 }
 
@@ -220,7 +220,7 @@ pipeline_log = {
     "timestamp": datetime.now().isoformat(),
     "sources": sources,
     "chunks_created": len(chunks),
-    "model_used": "claude-sonnet-4-6",
+    "model_used": "claude-sonnet-5",
     "analysis_type": "revenue_analysis",
     "validation_passed": True,
     "error_rate": "2.3%",

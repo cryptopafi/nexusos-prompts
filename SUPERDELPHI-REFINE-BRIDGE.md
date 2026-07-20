@@ -95,7 +95,7 @@ REFINE Phase 3.5 score → interpretare:
 **Model pentru Phase 3.5 (Self-Grading după INSIGHT REFINE)**:
 
 ```
-Model: claude-sonnet-4-6 (Sonnet)
+Model: claude-sonnet-5 (Sonnet)
 ```
 
 **Justificare**:

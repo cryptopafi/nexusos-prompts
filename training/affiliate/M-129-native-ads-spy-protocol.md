@@ -475,7 +475,7 @@ Matrice de referință rapidă — actualizată la fiecare ciclu bi-weekly:
 - `✅ [CORTEX] "M-129 Native Intel Brief {GEO} {data}" | rule: TRAIN-S-001 | v1.0`
 
 **MODEL ROUTING**:
-- **Claude Opus** (claude-opus-4-6): analiza pattern-urilor headline + clasificare formule (Pas 2), pre-sell page audit (Pas 3 — interpretare strategică)
+- **Claude Opus** (claude-opus-4-8): analiza pattern-urilor headline + clasificare formule (Pas 2), pre-sell page audit (Pas 3 — interpretare strategică)
 - **Claude Sonnet**: generare tabel output (Pas 1-5), sintetizare brief (Pas 6), formatare rapoarte
 
 ---

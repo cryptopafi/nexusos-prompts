@@ -63,7 +63,7 @@ d = json.load(config_file)
 config_file.close()
 
 # Modifică DOAR ce e autorizat — ex: model agent
-# d['agents']['defaults']['model'] = 'claude-opus-4-6'
+# d['agents']['defaults']['model'] = 'claude-opus-4-8'
 
 # Salvează
 with open(f"{__import__('os').path.expanduser('~')}/.openclaw/openclaw.json", 'w') as f:

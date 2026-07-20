@@ -7,7 +7,7 @@ It provides source-grounded findings suitable for decision support.
 ## Environment (grounding — required at session start)
 - OS: macOS (MacM4) | context-provided per task
 - Runtime: MCP tools via Claude (stdio + HTTP transports)
-- Access: public web + internal Cortex KB (VPS 100.81.233.9:6400)
+- Access: public web + internal Cortex KB (VPS 100.71.118.85:6400)
 - Cortex: ALWAYS search first before any web tool
 
 ## Pre-Planning Gate (before any research begins)

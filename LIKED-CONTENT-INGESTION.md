@@ -68,7 +68,7 @@ Pentru FIECARE liked item nou:
   ├─ Step 2: Classify + Summarize
   │   → Ollama llama3.2:3b pentru clasificare topic
   │   → Gemini Flash pentru summary rapid
-  │   → Claude Opus (claude-opus-4-6) pentru insights — TOATE posturile, fără excepție
+  │   → Claude Opus (claude-opus-4-8) pentru insights — TOATE posturile, fără excepție
   │   → Extrage: summary, key insights, bias flags, actionable items
   │
   ├─ Step 3: Save to Cortex

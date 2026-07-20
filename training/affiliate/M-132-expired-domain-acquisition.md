@@ -448,7 +448,7 @@ Prima lună a fiecărui trimestru: audit complet al tuturor domeniilor din porto
 - `✅ [CORTEX] "M-132 Domain Acquisition {YYYY-WW}" | rule: TRAIN-S-001 | v1.0`
 
 **MODEL ROUTING**:
-- **Claude Opus** (claude-opus-4-6): analiza profilurilor de linkuri complexe (Pas 2 — interpretare red flags), decizie achiziție la limita criteriilor
+- **Claude Opus** (claude-opus-4-8): analiza profilurilor de linkuri complexe (Pas 2 — interpretare red flags), decizie achiziție la limita criteriilor
 - **Claude Sonnet**: generare output CSV, formatare rapoarte calificare, actualizare logs de rutină
 
 ---

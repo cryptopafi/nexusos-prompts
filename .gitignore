@@ -1,0 +1,6 @@
+
+# Working artifacts from skill edits (never distribute)
+*.bak-*
+*.bak
+__pycache__/
+*.pyc

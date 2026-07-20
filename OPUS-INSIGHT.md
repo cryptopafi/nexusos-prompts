@@ -79,7 +79,7 @@ When delivering, Opus Insight generates:
   "new_topic": "Refined search query (max 80 chars, null if deliver)",
   "iteration": 0,
   "epr_score": 14,
-  "model_used": "anthropic/claude-opus-4-6",
+  "model_used": "anthropic/claude-opus-4-8",
   "confidence": 0.85
 }
 ```

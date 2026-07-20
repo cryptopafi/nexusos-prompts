@@ -313,7 +313,7 @@ La finalul execuției procedurii, agentul care a executat-o verifică:
 | Audit periodic (AUDIT-PRO) | Opus 4.6 subagent | Review structural 100+ items — Sonnet ratează gap-uri critice (DEV-H-010) |
 | Validare API | Deterministic (forge.ts) | Nu e LLM — e cod |
 
-**Referință**: COST-H-001 + `memory/rules/model-routing-table.md` — model IDs: `claude-sonnet-4-6` / `claude-opus-4-6`
+**Referință**: COST-H-001 + `memory/rules/model-routing-table.md` — model IDs: `claude-sonnet-5` / `claude-opus-4-8`
 
 ---
 

@@ -381,7 +381,7 @@ Dacă `|Delta| > 20%` pentru orice canal → recomandare de realocare.
 - `✅ [CORTEX] "M-131 Attribution {GEO} {YYYY-MM}" | rule: TRAIN-S-001 | v1.0`
 
 **MODEL ROUTING**:
-- **Claude Opus** (claude-opus-4-6): interpretare discrepanțe semnificative (delta >30%), analiza căilor de conversie (Pas 4 — insight-uri strategice), setup schema inițial (Pas 1)
+- **Claude Opus** (claude-opus-4-8): interpretare discrepanțe semnificative (delta >30%), analiza căilor de conversie (Pas 4 — insight-uri strategice), setup schema inițial (Pas 1)
 - **Claude Sonnet**: calcule lunare modele atribuire (Pas 3), generare tabele output, formatare rapoarte budget reallocation
 
 ---

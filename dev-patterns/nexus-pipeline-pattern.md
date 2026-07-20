@@ -87,9 +87,9 @@ logger = logging.getLogger("nexus")
 # MODEL ROUTING — obligatoriu
 MODEL_ROUTING = {
     "triage": "claude-haiku-4-5-20251001",    # clasificare rapidă
-    "research": "claude-sonnet-4-6",           # research standard
-    "synthesis": "claude-opus-4-6",            # synthesis deep
-    "fallback": "claude-sonnet-4-6",           # când opus fail
+    "research": "claude-sonnet-5",           # research standard
+    "synthesis": "claude-opus-4-8",            # synthesis deep
+    "fallback": "claude-sonnet-5",           # când opus fail
 }
 
 # EPR SCORING — integrat în output

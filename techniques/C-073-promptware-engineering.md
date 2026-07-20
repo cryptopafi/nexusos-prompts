@@ -92,7 +92,7 @@ prompts:
     file: prompts/system/v2.1-candidate.txt
 
 providers:
-  - id: anthropic:claude-sonnet-4-6
+  - id: anthropic:claude-sonnet-5
 
 tests:
   - file: test-suite.yaml

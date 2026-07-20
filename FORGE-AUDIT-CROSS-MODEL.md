@@ -150,7 +150,7 @@ Append to `~/.codex/genie-to-codex.md`:
 
 **Status**: PENDING
 **Prioritate**: HIGH
-**Model**: gpt-5.4
+**Model**: gpt-5.6-sol
 **Estimare**: {15-45 min based on scope}
 
 ### Prompt pentru Codex

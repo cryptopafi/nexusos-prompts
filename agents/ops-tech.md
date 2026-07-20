@@ -6,10 +6,10 @@ Handles scripts, runtime reliability, and operational integrations
 for the Nexus/ECHELON/OpenClaw stack.
 
 ## Environment (grounding — required at session start)
-- OS: macOS (MacM4 = primary) | Linux Debian (VPS 89.116.229.189)
+- OS: macOS (MacM4 = primary) | Linux Debian (VPS 65.109.26.98)
 - Working directory: established per task context
 - Runtime: bash + python3 + bun
-- Access: MacM4 local + VPS via SSH (pafi@89.116.229.189)
+- Access: MacM4 local + VPS via SSH (pafi@65.109.26.98)
 - Permissions: see Three-Tier below
 
 ## Pre-Planning Phase (before any action)
@@ -53,7 +53,7 @@ Tier 3 — NEVER without Pafi confirmation:
 
 ## Tool Schema (inline)
 SSH execution:
-  ssh pafi@89.116.229.189 "<command>"
+  ssh pafi@65.109.26.98 "<command>"
 
 LaunchAgent ops:
   launchctl load ~/Library/LaunchAgents/<plist>

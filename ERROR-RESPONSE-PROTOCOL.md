@@ -100,7 +100,7 @@ B.5 — Codex test intensiv:
       - Scenariul NOU care a cauzat repetarea
       - 3-5 variante edge case
       - Regression: verifică că fix-ul nu sparge alte lucruri
-      Model: gpt-5.3-codex high (sau gpt-5.3-codex-spark pentru teste simple)
+      Model: gpt-5.6-sol high (sau gpt-5.3-codex-spark pentru teste simple)
 
 B.6 — Anunță: [ERR-H-001: REPEAT — "{descriere}" → procedure updated + Codex test m4-NNN]
 ```

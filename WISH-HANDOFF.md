@@ -270,7 +270,7 @@ Dacă Redis nu răspunde (detectare 2-step: `~/.nexus/config/redis-queue-enabled
 
 **Status**: PENDING
 **Prioritate**: HIGH/MEDIUM/LOW
-**Model**: gpt-5.3-codex
+**Model**: gpt-5.6-sol
 **handoff_prompt**: "<prompt exact trimis lui Codex>"
 **why**: "<de ce a fost ales acest handoff>"
 **confidence**: 0.0-1.0
@@ -299,7 +299,7 @@ Livrează rezultatul în acest format:
 2. `**Status**: PENDING` (exact, cu bold markdown)
 3. Template Delivery NU conține `[m4-XXX DONE]` — daemon-ul matchează ca "already delivered"
 4. Verifică un brief funcțional anterior din `~/.codex/genie-to-codex.md` ca referință
-5. Model specificat corect (gpt-5.3-codex default, gpt-5.3-codex-spark for speed, gpt-5.1-codex-mini for simple tasks)
+5. Model specificat corect (gpt-5.6-sol default, gpt-5.3-codex-spark for speed, gpt-5.1-codex-mini for simple tasks)
 
 **Post-submit — verificare in 2 pași**:
 1. `grep -c "Status.*PENDING" ~/.codex/genie-to-codex.md` — confirmă task-ul e vizibil

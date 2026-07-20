@@ -508,7 +508,7 @@ Tabelul de referință pentru evaluarea calității template-ului M-127:
 - `✅ [CORTEX] "M-130 Quality Gate {batch-id}" | rule: TRAIN-S-001 | v1.0`
 
 **MODEL ROUTING**:
-- **Claude Opus** (claude-opus-4-6): HEAVY REWRITE (scor AI 71-100%) — rescrierea articolelor cu scor AI ridicat necesită calitate maximă; interpretare anomalii trafic (Pas 5)
+- **Claude Opus** (claude-opus-4-8): HEAVY REWRITE (scor AI 71-100%) — rescrierea articolelor cu scor AI ridicat necesită calitate maximă; interpretare anomalii trafic (Pas 5)
 - **Claude Sonnet**: LIGHT EDIT și MODERATE REWRITE (Pas 2), generare raport lunar (Pas 5), formatare output CSV
 
 ---
